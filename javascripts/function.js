@@ -34,3 +34,12 @@ function updateIcons()
       );
    }
 }
+
+function urlParam(name)
+{
+   var results = new RegExp('[?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+   if (results != null && typeof results[1] !== 'undefined')
+      return results[1];
+   else
+      return null;
+}
