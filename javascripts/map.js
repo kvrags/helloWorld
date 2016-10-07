@@ -72,3 +72,54 @@ Map.displayMap = function(userPosition, carPosition)
 
    $.mobile.loading('hide');
 }
+
+/**
+ * Calculate the route from the user to his car
+ */
+Map.setRoute = function(directionsDisplay, userLatLng, carLatLng)
+{
+   var directionsService = new google.maps.DirectionsService();
+   var request = {
+      origin: userLatLng,
+      destination: carLatLng,
+      travelMode: google.maps.DirectionsTravelMode.WALKING,
+      unitSystem: google.maps.UnitSystem.METRIC
+   };
+
+   directionsService.route(
+      request,
+      function(response, status)
+      {
+         if (status == google.maps.DirectionsStatus.OK)
+            directionsDisplay.setDirections(response);
+         else
+         {
+            navigator.notification.alert(
+               'Unable to retrieve a route to your car. However, you can still find it by your own.',
+               function(){},
+               'Warning'
+            );
+         }
+      }
+   );
+}
+
+/**
+ * Request the address of the retrieved location
+ */
+Map.requestLocation = function(position)
+{
+   new google.maps.Geocoder().geocode(
+      {
+         'location': new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+      },
+      function(results, status)
+      {
+         if (status == google.maps.GeocoderStatus.OK)
+         {
+            var positions = new Position();
+            positions.updatePosition(0, positions.getPositions()[0].coords, results[0].formatted_address);
+         }
+      }
+   );
+}
