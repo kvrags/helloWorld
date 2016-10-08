@@ -1,78 +1,64 @@
-<!-- 
 <!DOCTYPE html>
 <html>
   <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Where I Parked my Car</title>
-     <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" type="text/css" media="all" />
-     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-     <script src="js/jquery-1.8.3.min.js"></script>
-     <script src="js/jquery.mobile.config.js"></script>
-     <script src="js/jquery.mobile-1.2.0.min.js"></script>
-     <script src="js/cordova-2.0.0.js"></script>
-     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-     <script src="jscripts/functions.js"></script>
-     <script src="jscripts/maps.js"></script>
-     <script src="jscripts/positions.js"></script>
-     <script>
-        $(document).one('deviceready', initApplication);
-     </script>
-  </head>
-  <body>
-     <div id="welcome-page" data-role="page">
-        <header data-role="header">
-           <h1>Where I parked my car</h1>
-        </header>
-        <div id="content" data-role="content">
-           <p>
-              Where I parked my car lets you bookmark where you parked your car on a map
-              and then find a route when you want to return to it. The app will also
-              save a log of your saved positions (up to 50).
-           </p>
-          <p> <a href="map.html?requestType=set" id="set-car-position" data-role="button">Set position</a> </p>
-           <p> <a href="map.html?requestType=get" id="find-car" data-role="button">Find car</a>  </p>
-            <p> <a href="positions.html" id="positions-history" data-role="button">Positions history</a>  </p>
-         </div>
-        <footer data-role="footer">
-           <p>Created by Aurelio De Rosa</p>
-           <a href="aurelio.html" data-icon="info" data-iconpos="notext" class="ui-btn-right">Credits</a>
-        </footer>
-     </div>
-  </body>
-</html>
--->
-<!DOCTYPE html>
-<html>
-  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
     </style>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Where am I?</title>
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
     <div id="map"></div>
     <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
       function initMap() {
-        var uluru = {lat: -30.363, lng: 231.044};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 1,
-          center: uluru
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
         });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
       }
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8U_4A6IKk956Lcw_MW5Erw8zvRYWBbBA&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8U_4A6IKk956Lcw_MW5Erw8zvRYWBbBA&callback=initMap">
     </script>
   </body>
 </html>
