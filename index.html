@@ -55,17 +55,19 @@
             
             directionsDisplay.setMap(map);
             
-           // var request = {
-            //  origin: start,
-            //  destination: end,
-            //  travelMode: 'DRIVING'
-         // };
+            var request = {
+               origin: start,
+               destination: end,
+               travelMode: 'DRIVING'
+          };
             
-           // var status;
-           // directionsService.route(request, function(result, status) {
-            //if (status == 'OK') {
-              //  directionsDisplay.setDirections(result);
-           // };            
+            var status;
+            var result;
+            
+            directionsService.route(request, function(result, status) {
+            if (status == 'OK') {
+                directionsDisplay.setDirections(result);
+            };            
                        
             
           }, function() {
