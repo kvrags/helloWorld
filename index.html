@@ -58,15 +58,15 @@
                travelMode: 'DRIVING'
           };
             
-            //var status;
-            //var result;
+            var status;
+            var result;
             
             directionsService.route(request, function(result, status) {
             if (status == 'OK') {
                 directionsDisplay.setDirections(result);
             }
-            }
-                       
+            
+                      
             
           } function() {
             handleLocationError(true, infoWindow, map.getCenter());
