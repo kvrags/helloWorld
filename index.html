@@ -53,21 +53,6 @@
             //infoWindow.image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
             map.setCenter(start);
             
-           directionsDisplay.setMap(map);
-            
-            var request = {
-              origin: start,
-              destination: end,
-              travelMode: 'DRIVING'
-          };
-            
-            var status;
-            directionsService.route(request, function(result, status) {
-            if (status == 'OK') {
-                directionsDisplay.setDirections(result);
-            };
-
-            
             
             
           }, function() {
