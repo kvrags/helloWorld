@@ -42,6 +42,13 @@
             infoWindow.setContent('Location found.');
             infoWindow.image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
             map.setCenter(pos);
+            
+            var directionsDisplay;
+            var directionsService = new google.maps.DirectionsService();
+            
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            
+            directionsDisplay.setMap(map);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -57,6 +64,7 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
+      
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8U_4A6IKk956Lcw_MW5Erw8zvRYWBbBA&callback=initMap">
