@@ -27,7 +27,7 @@
             var directionsDisplay;
             var directionsService = new google.maps.DirectionsService();
             directionsDisplay = new google.maps.DirectionsRenderer();
-            var end = new google.maps.LatLng (12.97,  75.78); //Saklespura
+            var end = new google.maps.LatLng (12.97,  75.78); //Sakleshpura
             
                 
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -62,7 +62,7 @@
             var result;
             
             directionsService.route(request, function(result, status) {
-            if (status == 'OK') {
+            //if (status == 'OK') {
                 directionsDisplay.setDirections(result);
             };            
                        
