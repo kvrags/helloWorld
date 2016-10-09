@@ -22,9 +22,11 @@
      <p id='map'></p>
           
     <script>
-      var myPosition = new navigator.geolocation();
-      var destinationPosition;
-        
+      var myLat;
+      var myLong;
+      var destinationLat;
+      var destinationLong;
+                
       function pageProtocol(){
        console.log ('calling pageProtocol()');
           document.getElementById("protocol").innerHTML = "Page protocol is " + window.location.protocol;
@@ -53,16 +55,16 @@
     
         function showPosition(position) {
             //currentPosition = new position;
-            //currentLocLat =  position.coords.latitude;
-            //currentLocLong = position.coords.longitude;
+            myLat =  new position.coords.latitude;
+            myLong = new position.coords.longitude;
             
             document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
             "<br>Longitude: " + position.coords.longitude;
         }
         
         getLocation();
-        console.log ("Current Latitude :" + myPosition.coords.latitude);
-        console.log ("Current Longtitude :" + myPosition.coords.longitude);
+        console.log ("Current Latitude :" + myLat);
+        console.log ("Current Longtitude :" + myLong);
                      
         
      </script>
