@@ -51,7 +51,8 @@
         function getCurrentLocation() {
             
             if(!!navigator.geolocation) {
-                position = navigator.geolocation.getCurrentPosition();
+                
+                navigator.geolocation.getCurrentPosition(position);
                 
             } else { 
                 document.getElementById("coOrdinates").innerHTML = "Geolocation is not supported by this browser.";
