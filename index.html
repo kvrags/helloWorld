@@ -49,8 +49,8 @@
         
         // Get the current co-ordinates
         function showCurrentPosition(position) {
-                var latitude  = position.coords.latitude;
-                var longitude = position.coords.longitude;
+                myLat = position.coords.latitude;
+                myLong = position.coords.longitude;
                 
                 //
             document.getElementById("coOrdinates").innerHTML = "Latitude: " + position.coords.latitude +
@@ -63,7 +63,7 @@
         function getCurrentLocation() {
             
             if(!!navigator.geolocation) {
-                
+                var position;
                 navigator.geolocation.getCurrentPosition(showCurrentPosition(position));
                 
                 
