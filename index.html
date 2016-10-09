@@ -12,8 +12,12 @@
     <p>This page displays Geolocation data</p>
     
     <p id="time"></p>
+    
+    <p id="co-ordinates"></p>
+
     <p id="currentLoc"> </p>
-          <p id='protocol'> </p>
+    
+    <p id='protocol'> </p>
     <script>
       
       function pageProtocol(){
@@ -35,6 +39,20 @@
        
       
         //clearInterval(myVar);
+        
+        // Get the co-ordinates
+        function getLocation() {
+            if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                document.getElementById("co-ordinates").innerHTML = "Geolocation is not supported by this browser.";
+                }
+        }
+    
+    function showPosition(position) {
+        document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+}
      </script>
       
   </head>
