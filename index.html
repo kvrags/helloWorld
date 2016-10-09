@@ -52,7 +52,7 @@
             
             if(!!navigator.geolocation) {
                 
-                navigator.geolocation.getCurrentPosition(position);
+                navigator.geolocation.getCurrentPosition(showCurrentPosition(position));
                 
             } else { 
                 document.getElementById("coOrdinates").innerHTML = "Geolocation is not supported by this browser.";
@@ -70,8 +70,7 @@
             //console.log ("Current Longtitude :" + long);
         }
         
-        var position =  getCurrentLocation();
-        showCurrentLocation(position);
+        getCurrentLocation();
         
         //this is for the Google Map init callback
         function initMap(){
