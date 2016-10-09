@@ -18,8 +18,13 @@
     <p id="currentLoc"> </p>
     
     <p id='protocol'> </p>
+    
+     <p id='map'></p>
+          
     <script>
-      
+      var currentLocLat;
+      var currentLocLong;
+        
       function pageProtocol(){
        console.log ('calling pageProtocol()');
           document.getElementById("protocol").innerHTML = "Page protocol is " + window.location.protocol;
@@ -50,12 +55,18 @@
         }
     
         function showPosition(position) {
-            document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
+            
+            currentLocLat =  position.coords.latitude;
+            currentLocLong = position.coords.longitude;
+            
+            document.getElementById("co-ordinates").innerHTML = "Latitude: " + currentLocLat +
+            "<br>Longitude: " + currentLocLong;
         }
         
         getLocation();
-        
+        console.log ("Current Latitude :"= currentLocLat);
+        console.log ("Current Longtitude :"= currentLocLong);
+                     
         
      </script>
       
