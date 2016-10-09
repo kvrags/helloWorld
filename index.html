@@ -49,12 +49,9 @@
         
         // Get the current co-ordinates
         function showCurrentPosition(position) {
-                myLat = position.coords.latitude;
-                myLong = position.coords.longitude;
-                
-                //
-            document.getElementById("coOrdinates").innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
+                //myLat = position.coords.latitude;
+                //myLong = position.coords.longitude;
+               document.getElementById("coOrdinates").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
             
             //map.setCenter(new google.maps.LatLng(lat, long));
             //console.log ("Current Latitude :" + lat);
