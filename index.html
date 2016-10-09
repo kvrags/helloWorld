@@ -22,8 +22,8 @@
      <p id='map'></p>
           
     <script>
-      var currentLocLat;
-      var currentLocLong;
+      var currentPosition;
+      var destinationPosition;
         
       function pageProtocol(){
        console.log ('calling pageProtocol()');
@@ -55,17 +55,17 @@
         }
     
         function showPosition(position) {
+            currentPosition = position;
+            //currentLocLat =  position.coords.latitude;
+            //currentLocLong = position.coords.longitude;
             
-            currentLocLat =  position.coords.latitude;
-            currentLocLong = position.coords.longitude;
-            
-            document.getElementById("co-ordinates").innerHTML = "Latitude: " + currentLocLat +
-            "<br>Longitude: " + currentLocLong;
+            document.getElementById("co-ordinates").innerHTML = "Latitude: " + currentPosition.coords.latitude +
+            "<br>Longitude: " + currentPosition.coords.longitude;
         }
         
         getLocation();
-        console.log ("Current Latitude :" + currentLocLat);
-        console.log ("Current Longtitude :" + currentLocLong);
+        console.log ("Current Latitude :" + currentPosition.coords.latitude);
+        console.log ("Current Longtitude :" + currentPosition.coords.longitude);
                      
         
      </script>
