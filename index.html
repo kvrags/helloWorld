@@ -47,7 +47,7 @@
         // Get the current co-ordinates
         function getLocation() {
             if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition());
+                    navigator.geolocation.getCurrentPosition(showPosition(position));
             } else { 
                 document.getElementById("co-ordinates").innerHTML = "Geolocation is not supported by this browser.";
                 }
