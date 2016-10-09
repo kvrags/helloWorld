@@ -49,10 +49,12 @@
                 }
         }
     
-    function showPosition(position) {
-        document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-}
+        function showPosition(position) {
+            document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+        }
+        
+        getLocation();
      </script>
       
   </head>
