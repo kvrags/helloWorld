@@ -48,14 +48,14 @@
         function getLocation() {
             var map;
     
-        var mapOptions = {
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+            var mapOptions = {
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
         
-        map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
-    
-        navigator.geolocation.getCurrentPosition(function(position) {
+            map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
+
+            navigator.geolocation.getCurrentPosition(function(position);
         
             var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             
@@ -70,11 +70,7 @@
             
             map.setCenter(geolocate);
             
-        });
-                                                                                                              
-          
-                
-            } else { 
+          } else { 
                 document.getElementById("coOrdinates").innerHTML = "Geolocation is not supported by this browser.";
                 console.log("Geolocation is not supported by this browser.");
                 }
