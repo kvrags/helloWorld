@@ -59,8 +59,8 @@
             //currentLocLat =  position.coords.latitude;
             //currentLocLong = position.coords.longitude;
             
-            document.getElementById("co-ordinates").innerHTML = "Latitude: " + currentPosition.coords.latitude +
-            "<br>Longitude: " + currentPosition.coords.longitude;
+            document.getElementById("co-ordinates").innerHTML = "Latitude: " + currentPosition.coords.latitude.value +
+            "<br>Longitude: " + currentPosition.coords.longitude.value;
         }
         
         getLocation();
