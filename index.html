@@ -27,6 +27,7 @@
             var directionsDisplay;
             var directionsService = new google.maps.DirectionsService();
             directionsDisplay = new google.maps.DirectionsRenderer();
+        
             var end = new google.maps.LatLng (12.97,  75.78); //Sakleshpura
             
                 
@@ -34,7 +35,7 @@
               center: {lat: -34.397, lng: 150.644},
               zoom: 16
         });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+        var infoWindow = new google.maps.InfoWindow({map: end});
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
