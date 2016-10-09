@@ -13,7 +13,7 @@
     
     <p id="time"></p>
     
-    <p id="co-ordinates"></p>
+    <p id="coOrdinates"></p>
 
     <p id="currentLoc"> </p>
     
@@ -49,7 +49,7 @@
             if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition());
             } else { 
-                document.getElementById("co-ordinates").innerHTML = "Geolocation is not supported by this browser.";
+                document.getElementById("coOrdinates").innerHTML = "Geolocation is not supported by this browser.";
                 }
         }
     
@@ -58,7 +58,7 @@
             //var lat = position.coords.latitude;
             //var long = position.coords.longitude;
             
-            document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
+            document.getElementById("coOrdinates").innerHTML = "Latitude: " + position.coords.latitude +
             "<br>Longitude: " + position.coords.longitude;
             
             //map.setCenter(new google.maps.LatLng(lat, long));
