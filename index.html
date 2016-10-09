@@ -59,12 +59,12 @@
             //currentLocLat =  position.coords.latitude;
             //currentLocLong = position.coords.longitude;
             
-            document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude.value +
-            "<br>Longitude: " + position.coords.longitude.value;
+            document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
         }
         
         getLocation();
-        console.log ("Current Latitude :" + position.coords.latitude.value);
+        console.log ("Current Latitude :" + position.coords.latitude);
         console.log ("Current Longtitude :" + position.coords.longitude);
                      
         
