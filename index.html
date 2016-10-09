@@ -51,7 +51,7 @@
         function getCurrentLocation() {
             
             if(!!navigator.geolocation) {
-                var position;
+                var position = new var;
                 navigator.geolocation.getCurrentPosition(showCurrentPosition(position));
                 
             } else { 
