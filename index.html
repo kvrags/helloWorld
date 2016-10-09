@@ -22,7 +22,7 @@
      <p id='map'></p>
           
     <script>
-      var currentPosition;
+      var myPosition;
       var destinationPosition;
         
       function pageProtocol(){
@@ -46,9 +46,9 @@
         //clearInterval(myVar);
         
         // Get the current co-ordinates
-        function getLocation() {
+        function getLocation(myPosition) {
             if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
+                    myPosition = navigator.geolocation.getCurrentPosition(showPosition();
             } else { 
                 document.getElementById("co-ordinates").innerHTML = "Geolocation is not supported by this browser.";
                 }
@@ -63,9 +63,9 @@
             "<br>Longitude: " + position.coords.longitude;
         }
         
-        getLocation();
-        console.log ("Current Latitude :" + position.coords.latitude);
-        console.log ("Current Longtitude :" + position.coords.longitude);
+        getLocation(myPosition);
+        console.log ("Current Latitude :" + myPosition.coords.latitude);
+        console.log ("Current Longtitude :" + myPosition.coords.longitude);
                      
         
      </script>
