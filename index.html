@@ -55,15 +55,15 @@
     
         function showPosition(position) {
             //currentPosition = new position;
-            var lat = position.coords.latitude;
-            var long = position.coords.longitude;
+            //var lat = position.coords.latitude;
+            //var long = position.coords.longitude;
             
             document.getElementById("co-ordinates").innerHTML = "Latitude: " + position.coords.latitude +
             "<br>Longitude: " + position.coords.longitude;
             
             //map.setCenter(new google.maps.LatLng(lat, long));
-            console.log ("Current Latitude :" + lat);
-            console.log ("Current Longtitude :" + long);
+            //console.log ("Current Latitude :" + lat);
+            //console.log ("Current Longtitude :" + long);
         }
         
         getLocation();
