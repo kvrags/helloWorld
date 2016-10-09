@@ -40,15 +40,12 @@
         //timer
         console.log('before setInterval timer function');
         var myVar = setInterval(showTime(), 1000); //every 1 seconds
-        
-       
-      
         //clearInterval(myVar);
         
         // Get the current co-ordinates
         function getLocation(myPosition) {
             if (navigator.geolocation) {
-                    myPosition = navigator.geolocation.getCurrentPosition(showPosition();
+                    navigator.geolocation.getCurrentPosition(showPosition(myPosition));
             } else { 
                 document.getElementById("co-ordinates").innerHTML = "Geolocation is not supported by this browser.";
                 }
@@ -63,7 +60,7 @@
             "<br>Longitude: " + position.coords.longitude;
         }
         
-        getLocation(myPosition);
+        getLocation();
         console.log ("Current Latitude :" + myPosition.coords.latitude);
         console.log ("Current Longtitude :" + myPosition.coords.longitude);
                      
