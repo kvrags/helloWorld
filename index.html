@@ -49,18 +49,18 @@
         
         // Get the current co-ordinates
         function showCurrentPosition(position) {
-                //myLat = position.coords.latitude;
-                //myLong = position.coords.longitude;
-               document.getElementById("coOrdinates").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+            //myLat = position.coords;
+            //myLong = position.coords.longitude;
+            document.getElementById("coOrdinates").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
             
-            //map.setCenter(new google.maps.LatLng(lat, long));
-            //console.log ("Current Latitude :" + lat);
-            //console.log ("Current Longtitude :" + long);
+            //var img = new Image();
+            //img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+            //output.appendChild(img);
         }
-        function getCurrentLocation() {
+        function getCurrentLocation(position) {
             
             if(!!navigator.geolocation) {
-                var position;
+                
                 navigator.geolocation.getCurrentPosition(showCurrentPosition(position));
                 
                 
@@ -71,8 +71,8 @@
         }
     
         
-        
-        getCurrentLocation();
+        var position;
+        getCurrentLocation(position);
         
         //this is for the Google Map init callback
         function initMap(){
