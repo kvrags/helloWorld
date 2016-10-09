@@ -47,7 +47,7 @@
         // Get the current co-ordinates
         function getLocation() {
             if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function(position));
+                    navigator.geolocation.getCurrentPosition(function(position))
                     var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
                     var infowindow = new google.maps.InfoWindow({
