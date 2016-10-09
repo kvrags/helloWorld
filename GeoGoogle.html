@@ -41,6 +41,9 @@
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
+            console.log("Current Latitiude is " + pos.lat);
+            console.log("Current Longitude is " + pos.lng);  
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -56,6 +59,7 @@
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
+      
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8U_4A6IKk956Lcw_MW5Erw8zvRYWBbBA&callback=initMap">
