@@ -37,7 +37,7 @@
       <option value="Hassan, Karnataka">Hassan</option>
     </select>
     <select id="waypoint">
-      <option value="Hanbal, Karnataka">hanbal</option> ////via  12.926480, 75.694032
+      <option value="Hanbal, Karnataka">Hanbal</option> ////via  12.926480, 75.694032
     </select>
     <b>End: </b>
     <select id="end">
@@ -68,8 +68,8 @@
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
-          waypoints: document.getElementById('waypoint').value
-          optimizeWaypoints: true
+          waypoints: document.getElementById('waypoint').value,
+          optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {
