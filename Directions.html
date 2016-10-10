@@ -36,6 +36,10 @@
       <option value="Mysore, Karnatamo">Mysore</option>
       <option value="Hassan, Karnataka">Hassan</option>
     </select>
+    <b>I am Driving: </b>
+    <select id="drive">
+      <option value="Bangalore,Karnata">Drive</option>
+    </select>
   <!--<b>Waypoints:</b> 
     <select id="waypoint">
       <option value="Hanbal, Karnataka">Hanbal</option> ////via  12.926480, 75.694032
@@ -50,6 +54,8 @@
     </div>
     <div id="map"></div>
     <script>
+      var pos;
+      
       function initMap() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -62,12 +68,12 @@
         if (navigator.geolocation) {
           //navigator.geolocation.getCurrentPosition(function(position) { //this is static location
           navigator.geolocation.watchPosition(function(position) {
-              var pos = {
+              pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
               };
-          map.setCenter(pos);
-          }, function() {
+          //map.setCenter(pos);
+             }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
         } else {
@@ -82,6 +88,8 @@
         };
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
+        document.getElementById('drive').addEventListener('change', onChangeHandler);
+
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -89,6 +97,7 @@
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
           //waypoints: document.getElementById('waypoint').value,
+          waypoints:  window.pos ,
           //optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {
