@@ -36,10 +36,11 @@
       <option value="Mysore, Karnatamo">Mysore</option>
       <option value="Hassan, Karnataka">Hassan</option>
     </select>
-    <b>Waypoints:</b> 
+  <!--<b>Waypoints:</b> 
     <select id="waypoint">
       <option value="Hanbal, Karnataka">Hanbal</option> ////via  12.926480, 75.694032
     </select>
+  -->
     <b>End: </b>
     <select id="end">
       //Estate Entrance at Concrete road 12.920296, 75.690737
@@ -53,7 +54,7 @@
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 7,
+          zoom: 14,
           center: {lat: 12.940959, lng: 75.781714}    //saklespura Bus stand
         });
         directionsDisplay.setMap(map);
@@ -69,8 +70,8 @@
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
-          waypoints: document.getElementById('waypoint').value,
-          optimizeWaypoints: true,
+          //waypoints: document.getElementById('waypoint').value,
+          //optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {
