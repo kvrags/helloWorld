@@ -89,7 +89,7 @@
         };
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
-        document.getElementById('drive').addEventListener('change', onChangeHandler);
+        //document.getElementById('drive').addEventListener('change', onChangeHandler);
 
       }
 
@@ -98,7 +98,7 @@
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
           //waypoints: document.getElementById('waypoint').value,
-          waypoints:  window.pos ,
+          //waypoints:  window.pos ,
           //optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {
