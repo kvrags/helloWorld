@@ -36,8 +36,9 @@
       <option value="Mysore, Karnatamo">Mysore</option>
       <option value="Hassan, Karnataka">Hassan</option>
     </select>
-    <select id="waypoint" value="Hanbal, Karnataka"> //via hanbal 12.926480, 75.694032
-      </select>
+    <select id="waypoint">
+      <option value="Hanbal, Karnataka">hanbal</option> ////via  12.926480, 75.694032
+    </select>
     <b>End: </b>
     <select id="end">
       //Estate Entrance at Concrete road 12.920296, 75.690737
@@ -68,6 +69,7 @@
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
           waypoints: document.getElementById('waypoint').value
+          optimizeWaypoints: true
           travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {
