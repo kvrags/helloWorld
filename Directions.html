@@ -30,6 +30,7 @@
   </head>
   <body>
     <div id="floating-panel">
+    <b>Select routes to arrive at Taana Estate.</b> <br>
     <b>Start: </b> <br>
     <select id="start">
       <option value="Bangalore,Karnata">Bangalore</option>
@@ -43,7 +44,7 @@
       <option value="Hanbal, Karnataka">Hanbal</option> ////via  12.926480, 75.694032
     </select>
   -->
-    <br><b>End: </b>
+  <!--  <br><b>End: </b>
     <select id="end">
       //Estate Entrance at Concrete road 12.920296, 75.690737
       //Estate Entrance Inside 12.9103679,75.6937259
@@ -53,7 +54,7 @@
     <select id="drive">
       <option value="Bangalore,Karnata">Drive</option>
     </select>
-
+  -->
     </div>
     <div id="map"></div>
     <script>
@@ -90,7 +91,7 @@
           calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
         document.getElementById('start').addEventListener('change', onChangeHandler);
-        document.getElementById('end').addEventListener('change', onChangeHandler);
+       // document.getElementById('end').addEventListener('change', onChangeHandler);
         //document.getElementById('drive').addEventListener('change', onChangeHandler);
 
       }
